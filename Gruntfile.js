@@ -32,7 +32,7 @@ module.exports = function(grunt) {
     connect: {
       options: {
         port: process.env.PORT || 3131,
-        base: 'dist/',
+        base: '',
       },
 
       all: {},
@@ -74,6 +74,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   // Default task.
   grunt.registerTask('default', ['concat', 'uglify']);
