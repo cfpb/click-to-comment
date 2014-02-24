@@ -24,8 +24,8 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['lib/<%= pkg.name %>.js'],
-        dest: 'dist/<%= pkg.name %>.js'
+        src: ['assets/js/<%= pkg.name %>.js'],
+        dest: 'dist/js/<%= pkg.name %>.js'
       }
     },
 
@@ -77,8 +77,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
 
   // Default task.
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['less', 'uglify']);
   grunt.registerTask('server', ['default', 'connect', 'watch']);
-  grunt.registerTask('deploy', ['clean', 'copy']);
+  grunt.registerTask('deploy', ['default', 'clean', 'concat',  'copy']);
 
 };
