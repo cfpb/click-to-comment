@@ -1,0 +1,12 @@
+{
+  "name": "click-to-comment",
+  "version": "0.0.1",
+  "dependencies": {
+    "normalize.css": "~3.0.0",
+    "angular": "~1.2.13",
+    "cf-forms": "https://github.com/cfpb/cf-forms.git#~0.4.0",
+    "cf-grid": "https://github.com/cfpb/cf-grid.git#~0.6.8",
+    "cf-colors": "https://github.com/cfpb/cf-colors.git#~0.4.0",
+    "cf-typography": "https://github.com/cfpb/cf-typography.git#~0.5.1"
+  }
+}
