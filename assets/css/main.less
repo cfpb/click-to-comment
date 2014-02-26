@@ -31,15 +31,16 @@ img {
     border: 1px solid @gray-20;
   }
 
-  .form-wrap {
+  #form-wrap {
     .column(5);
     overflow-y: scroll;
   }
 }
 
 @media (min-width: 850px) and (min-height: 700px) {
-  .form-wrap {
+  #form-wrap.min {
     position: fixed;
+    top: 30px;
   }
 }
 

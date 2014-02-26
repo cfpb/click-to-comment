@@ -20,7 +20,7 @@
 
 <body>
 
-<div class="wrapper" ng-controller="MainCtrl">
+<div class="wrapper" scroll ng-controller="MainCtrl">
 
     <h1>Click To Comment</h1>
 
@@ -44,7 +44,7 @@
       </div> <!-- /.img -->
     </div> <!-- /.img-wrap -->
 
-    <div class="form-wrap">
+    <div id="form-wrap" ng-class="{min:boolChangeClass}">
     <div class="comment-limit sans" ng-show="comments.length >= maxComments">
       There is a limit of <strong>{{maxComments}}</strong> comments.
     </div>
