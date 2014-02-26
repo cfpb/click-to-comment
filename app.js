@@ -2,6 +2,7 @@ var express = require('express'), db  = require('./models');
 var app = express();
 
 app.use(express.json());
+app.use("/", express.static(__dirname + '/'));
 
 app.post('/save', function(req, res){
     var req = req;
