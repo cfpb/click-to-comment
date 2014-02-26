@@ -12,6 +12,7 @@ imports
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2em 1em;
 }
 
 img {
@@ -19,16 +20,48 @@ img {
 }
 
 .img-wrap {
-  .column(6);
-  //position: relative;
+  .column(7);
   border: 1px solid @gray-20;
 }
 
 .form-wrap {
-  .column(6);
+  .column(5);
+}
+
+@media (min-width: 850px) {
+  .form-wrap {
+    position: fixed;
+  }
+}
+
+.img {
+  position: relative;
 }
 
 .comment-num {
-  color: @pacific;
-  font-size: 36px;
+  .webfont-demi();
+  background-color: @pacific;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 48px;
+}
+
+.sans {
+  .webfont-regular();
+
+  strong {
+    .webfont-demi();
+  }
+}
+
+.comment-form {
+  margin-bottom: 2em;
+}
+
+.clear:hover {
+  cursor: pointer;
 }
