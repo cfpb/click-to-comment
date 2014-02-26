@@ -17,7 +17,6 @@
   "dependencies": {
     "sequelize": "^1.7.0-rc9",
     "express": "3.x",
-    "lodash": "^2.4.1",
-    "csv": "^0.3.7"
+    "lodash": "^2.4.1"
   }
 }
