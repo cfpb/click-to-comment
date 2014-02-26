@@ -61,7 +61,7 @@ module.exports = function(grunt) {
 
     watch: {
       assets: {
-        files: ['assets/**/*', '*.css', '*.less', '*.js', 'images/**/*', 'img/**/*', '!Gruntfile.js'],
+        files: ['assets/**/*', '*.less', '*.js', 'images/**/*', 'img/**/*', '!Gruntfile.js'],
         tasks: ['less', 'uglify'],
       }
     }
