@@ -3,6 +3,7 @@ imports
 ==================================
 */
 
+@import (less) "../lib/normalize.css/normalize.css";
 @import "../lib/cf-colors/src/cf-colors.less";
 @import "../lib/cf-typography/src/cf-typography.less";
 @import "../lib/cf-forms/src/cf-forms.less";
@@ -12,6 +13,7 @@ imports
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2em 1em;
 }
 
 img {
@@ -19,16 +21,64 @@ img {
 }
 
 .img-wrap {
-  .column(6);
-  //position: relative;
   border: 1px solid @gray-20;
 }
 
-.form-wrap {
-  .column(6);
+
+@media (min-width: 850px){
+  .img-wrap {
+    .column(7);
+    border: 1px solid @gray-20;
+  }
+
+  .form-wrap {
+    .column(5);
+    overflow-y: scroll;
+  }
+}
+
+@media (min-width: 850px) and (min-height: 700px) {
+  .form-wrap {
+    position: fixed;
+  }
+}
+
+.img {
+  position: relative;
 }
 
 .comment-num {
-  color: @pacific;
-  font-size: 36px;
+  position:absolute;
+  .webfont-demi();
+  background-color: @pacific;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 48px;
+}
+
+.sans {
+  .webfont-regular();
+
+  strong {
+    .webfont-demi();
+  }
+}
+
+.comment-form {
+  margin-bottom: 1em;
+}
+
+.comment-limit {
+  margin-bottom: 1em;
+  padding: 10px;
+  background: @gold-20;
+  border: 1px solid @gold-80;
+}
+
+.clear:hover {
+  cursor: pointer;
 }
