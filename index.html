@@ -20,18 +20,18 @@
 
 <body>
 
-<div class="wrapper" ng-controller="MainCtrl">
+<div class="wrapper" scroll ng-controller="MainCtrl">
 
     <h1>Click To Comment</h1>
 
-    <p>Click to indicate which four items are most important in understanding final loan terms and closing costs.</p>
+    <p class="sans">Click to indicate which four items are most important in understanding final loan terms and closing costs.</p>
 
 
     <div class="img-wrap"  ng-click="addComment($event)">
-      <div clas="img">
+      <div class="img">
 
         <div ng-repeat="comment in comments track by $index">
-            <div class="comment-num" style="position:absolute;left:{{comment.left + 'px'}};top:{{comment.top + 'px'}};">
+            <div class="comment-num" style="left:{{comment.left + 'px'}};top:{{comment.top + 'px'}};">
                 {{$index + 1}}
             </div>
         </div>
@@ -44,18 +44,22 @@
       </div> <!-- /.img -->
     </div> <!-- /.img-wrap -->
 
-    <div class="form-wrap">
+    <div id="form-wrap" ng-class="{min:boolChangeClass}">
+    <div class="comment-limit sans" ng-show="comments.length >= maxComments">
+      There is a limit of <strong>{{maxComments}}</strong> comments.
+    </div>
     <form>
-        <div ng-repeat="comment in comments track by $index">
-            <p>
+        <div class="comment-form" ng-repeat="comment in comments track by $index">
+            <p class="sans">
                 Note {{$index + 1}}
-                <a ng-click="removeComment($index)">(clear this note)</a>
+                <a class="clear" ng-click="removeComment($index)">(clear this note)</a>
             </p>
             <textarea ng-model="comment.text"></textarea>
         </div>
-        <p>You may click up to {{maxComments - comments.length}} more {{comments.length === (maxComments - 1) ? 'time' : 'times'}} before sending.</p>
-        <button ng-show="comments.length > 0" ng-click="submit()">Send Notes</button>
+        <p class="sans">You may click up to <strong>{{maxComments - comments.length}}</strong> more {{comments.length === (maxComments - 1) ? 'time' : 'times'}} before sending.</p>
+        <button class="btn" ng-show="comments.length > 0" ng-click="submit()">Send Notes</button>
     </form>
+
   </div> <!-- /.form-wrap -->
 
 </div><!-- END .wrapper -->
