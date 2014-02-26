@@ -20,15 +20,23 @@ img {
 }
 
 .img-wrap {
-  .column(7);
   border: 1px solid @gray-20;
 }
 
-.form-wrap {
-  .column(5);
+
+@media (min-width: 850px){
+  .img-wrap {
+    .column(7);
+    border: 1px solid @gray-20;
+  }
+
+  .form-wrap {
+    .column(5);
+    overflow-y: scroll;
+  }
 }
 
-@media (min-width: 850px) {
+@media (min-width: 850px) and (min-height: 600px) {
   .form-wrap {
     position: fixed;
   }
