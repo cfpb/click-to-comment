@@ -8,7 +8,7 @@
 
   <title>Click To Comment</title>
   <meta name="description" content="">
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+  <script src="assets/lib/angular/angular.min.js"></script>
   <link rel="stylesheet" href="assets/css/main.css">
   <script>
       // Confirm availability of JS and remove no-js class from html
@@ -25,34 +25,38 @@
     <h1>Click To Comment</h1>
 
     <p>Click to indicate which four items are most important in understanding final loan terms and closing costs.</p>
-    
-    
-    <div style="position:relative"  ng-click="addComment($event)">
-        
+
+
+    <div class="img-wrap"  ng-click="addComment($event)">
+      <div clas="img">
+
         <div ng-repeat="comment in comments track by $index">
-            <div style="position:absolute;left:{{comment.left + 'px'}};top:{{comment.top + 'px'}}; color: red;font-size:40px;">
+            <div class="comment-num" style="position:absolute;left:{{comment.left + 'px'}};top:{{comment.top + 'px'}};">
                 {{$index + 1}}
             </div>
         </div>
-        
-        <img src="assets/img/le_page1.png" usemap="#map">
+
+        <img class="click-img" src="assets/img/le_page1.png" usemap="#map">
         <map name="map" id="map">
             <area shape="rect" coords="0,0,612,222" href="#" title="Settlement and transaction information" alt="Settlement and transaction information" >
 <area shape="rect" coords="0,222,612,792" href="#" title="Loan terms" alt="Loan terms" >
 		</map>
-    </div>
-    
+      </div> <!-- /.img -->
+    </div> <!-- /.img-wrap -->
+
+    <div class="form-wrap">
     <form>
         <div ng-repeat="comment in comments track by $index">
             <p>
-                Note {{$index + 1}} 
+                Note {{$index + 1}}
                 <a ng-click="removeComment($index)">(clear this note)</a>
             </p>
             <textarea ng-model="comment.text"></textarea>
         </div>
         <p>You may click up to {{maxComments - comments.length}} more {{comments.length === (maxComments - 1) ? 'time' : 'times'}} before sending.</p>
         <button ng-show="comments.length > 0" ng-click="submit()">Send Notes</button>
-    <form>
+    </form>
+  </div> <!-- /.form-wrap -->
 
 </div><!-- END .wrapper -->
 
