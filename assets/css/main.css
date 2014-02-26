@@ -509,3 +509,53 @@ textarea + [class^="icon-"] {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+img {
+  max-width: 100%;
+}
+.img-wrap {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+  width: 50%;
+  border: 1px solid #e3e4e5;
+}
+.ie .img-wrap {
+  margin-right: -0.26em;
+}
+.lt-ie8 .img-wrap {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+.form-wrap {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+  width: 50%;
+}
+.ie .form-wrap {
+  margin-right: -0.26em;
+}
+.lt-ie8 .form-wrap {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+.comment-num {
+  color: #0072ce;
+  font-size: 36px;
+}

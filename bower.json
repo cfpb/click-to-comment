@@ -7,6 +7,7 @@
     "cf-forms": "https://github.com/cfpb/cf-forms.git#~0.4.0",
     "cf-grid": "https://github.com/cfpb/cf-grid.git#~0.6.8",
     "cf-colors": "https://github.com/cfpb/cf-colors.git#~0.4.0",
-    "cf-typography": "https://github.com/cfpb/cf-typography.git#~0.5.1"
+    "cf-typography": "https://github.com/cfpb/cf-typography.git#~0.5.1",
+    "cf-buttons": "https://github.com/cfpb/cf-buttons.git#~0.7.0"
   }
 }

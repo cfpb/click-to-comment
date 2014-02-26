@@ -61,8 +61,8 @@ module.exports = function(grunt) {
 
     watch: {
       assets: {
-        files: ['assets/**/*', '*.css', '*.js', 'images/**/*', 'img/**/*', '!Gruntfile.js'],
-        tasks: ['copy'],
+        files: ['assets/**/*', '*.css', '*.less', '*.js', 'images/**/*', 'img/**/*', '!Gruntfile.js'],
+        tasks: ['less', 'uglify'],
       }
     }
   });
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['less', 'uglify']);
-  grunt.registerTask('server', ['default', 'connect', 'watch']);
+  grunt.registerTask('server', ['connect', 'watch']);
   grunt.registerTask('deploy', ['default', 'clean', 'concat',  'copy']);
 
 };
