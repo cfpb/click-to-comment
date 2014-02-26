@@ -29,13 +29,10 @@ module.exports = function(grunt) {
       }
     },
 
-    connect: {
-      options: {
-        port: process.env.PORT || 3131,
-        base: '',
-      },
-
-      all: {},
+    nodemon: {
+      dev: {
+        script: 'app.js'
+      }
     },
 
     uglify: {
@@ -74,11 +71,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-nodemon');
 
   // Default task.
   grunt.registerTask('default', ['less', 'uglify']);
-  grunt.registerTask('server', ['connect', 'watch']);
+  grunt.registerTask('server', ['nodemon', 'watch']);
   grunt.registerTask('deploy', ['default', 'clean', 'concat',  'copy']);
 
 };
