@@ -4,7 +4,7 @@ click-to-comment
 
 ## API
 
-The handler at /SAVE accepts POST's of JSON data in a form that looks like:
+The handler at /save accepts POST's of JSON data in a form that looks like:
 
 ```json
 [
