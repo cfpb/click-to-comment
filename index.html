@@ -31,7 +31,7 @@
       <div class="img">
 
         <div ng-repeat="comment in comments track by $index">
-            <div class="comment-num" style="position:absolute;left:{{comment.left + 'px'}};top:{{comment.top + 'px'}};">
+            <div class="comment-num" style="left:{{comment.left + 'px'}};top:{{comment.top + 'px'}};">
                 {{$index + 1}}
             </div>
         </div>
@@ -45,6 +45,9 @@
     </div> <!-- /.img-wrap -->
 
     <div class="form-wrap">
+    <div class="comment-limit sans" ng-show="comments.length >= maxComments">
+      There is a limit of <strong>{{maxComments}}</strong> comments.
+    </div>
     <form>
         <div class="comment-form" ng-repeat="comment in comments track by $index">
             <p class="sans">
@@ -56,6 +59,7 @@
         <p class="sans">You may click up to <strong>{{maxComments - comments.length}}</strong> more {{comments.length === (maxComments - 1) ? 'time' : 'times'}} before sending.</p>
         <button class="btn" ng-show="comments.length > 0" ng-click="submit()">Send Notes</button>
     </form>
+
   </div> <!-- /.form-wrap -->
 
 </div><!-- END .wrapper -->
