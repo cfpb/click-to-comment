@@ -8,6 +8,8 @@
 
   <title>Click To Comment</title>
   <meta name="description" content="">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  
   <script src="assets/lib/angular/angular.min.js"></script>
   <link rel="stylesheet" href="assets/css/main.css">
   <script>
@@ -27,20 +29,31 @@
     <p>Click to indicate which four items are most important in understanding final loan terms and closing costs.</p>
 
 
-    <div class="img-wrap"  ng-click="addComment($event)">
-      <div clas="img">
+    <div class="img-wrap" style="position:relative;">
+      <div class="img" >
 
         <div ng-repeat="comment in comments track by $index">
-            <div class="comment-num" style="position:absolute;left:{{comment.left + 'px'}};top:{{comment.top + 'px'}};">
-                {{$index + 1}}
-            </div>
+          <div class="comment-num" ng-style="{top: comment.top + '%', left: comment.left + '%'}" style="position:absolute;z-index:1000">
+              {{$index + 1}}
+          </div>
         </div>
-
-        <img class="click-img" src="assets/img/le_page1.png" usemap="#map">
-        <map name="map" id="map">
-            <area shape="rect" coords="0,0,612,222" href="#" title="Settlement and transaction information" alt="Settlement and transaction information" >
-<area shape="rect" coords="0,222,612,792" href="#" title="Loan terms" alt="Loan terms" >
-		</map>
+        
+        <div class="img-container" ng-click="addComment($event)">
+            <img class="click-img" src="assets/img/le_page1.png" usemap="#map">
+            <map name="map" id="map">
+                <area shape="rect" coords="0,0,612,222" href="#" title="Settlement and transaction information" alt="Settlement and transaction information" >
+                <area shape="rect" coords="0,222,612,792" href="#" title="Loan terms" alt="Loan terms" >
+    		</map>
+    	</div>
+    	
+    	<div class="img-container" ng-click="addComment($event)">
+            <img class="click-img" src="assets/img/le_page1.png" usemap="#map1">
+            <map name="map" id="map1">
+                <area shape="rect" coords="0,0,612,222" href="#" title="Settlement and transaction information" alt="Settlement and transaction information" >
+                <area shape="rect" coords="0,222,612,792" href="#" title="Loan terms" alt="Loan terms" >
+    		</map>
+    	</div>
+    	
       </div> <!-- /.img -->
     </div> <!-- /.img-wrap -->
 

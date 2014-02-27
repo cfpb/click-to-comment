@@ -1,0 +1,1095 @@
+/*
+imports
+==================================
+*/
+/* ==========================================================================
+   Capital Framework
+   Color Variables
+   ========================================================================== */
+/* ==========================================================================
+   Capital Framework
+   Basic Typography
+   ========================================================================== */
+/* topdoc
+    name: LESS notes
+    family: cf-typography
+    patterns:
+    - name: Size variables
+      codenotes:
+        - "@base-font-size-px: 16px;"
+        - "@base-line-height-px: 22px;"
+        - "@base-line-height: unit(@base-line-height-px / @base-font-size-px);"
+    - name: Webfont mixins
+      codenotes:
+        - ".webfont-regular()"
+        - ".webfont-italic()"
+        - ".webfont-medium()"
+        - ".webfont-demi()"
+    - name: Explicitly set font styles
+      notes:
+        - "Any instances of Avenir Next getting italicized or bolded must be declared explicitly
+          so that it uses the correct webfont and does not fake the style on normal Avenir Next."
+        - "Use the webfont mixins above to make this easy. See the #blockquote styles as an example."
+      markup: |
+       <blockquote cite="http://cfpb.github.io/cf-typography/docs/index.html#webfont-notes">
+         Any instances of Avenir Next getting <em>italic</em><i>ized</i> or <strong>bold</strong><b>ed</b> must be declared explicitly ...
+       </blockquote> 
+    tags:
+    - cf-typography
+*/
+/* topdoc
+    name: Type hierarchy
+    family: cf-typography
+    patterns:
+    - name: Default body type
+      markup: |
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    - name: Heading level 1
+      markup: |
+        <h1>Example heading element</h1>
+        <p class="h1">A non-heading element</p>
+    - name: Heading level 2
+      markup: |
+        <h2>Example heading element</h2>
+        <p class="h2">A non-heading element</p>
+    - name: Heading level 3
+      markup: |
+        <h3>Example heading element</h3>
+        <p class="h3">A non-heading element</p>
+    - name: Heading level 4
+      markup: |
+        <h4>Example heading element</h4>
+        <p class="h4">A non-heading element</p>
+    - name: Heading level 5
+      markup: |
+        <h5>Example heading element</h5>
+        <p class="h5">A non-heading element</p>
+    - name: Heading level 6
+      markup: |
+        <h6>Example heading element</h6>
+        <p class="h6">A non-heading element</p>
+    - name: Super header
+      markup: |
+        <h1 class="superheader">Example super heading</h1>
+        <p class="superheader">Example super heading</p>
+    tags:
+    - cf-typography
+*/
+body {
+  color: #101820;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 100%;
+  line-height: 1.375;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-top: 0;
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+h1,
+.h1 {
+  margin-bottom: 0.64705882em;
+  font-size: 2.125em;
+  line-height: 1.29411765;
+}
+h2,
+.h2 {
+  margin-bottom: 0.84615385em;
+  font-size: 1.625em;
+  line-height: 1.26923077;
+}
+h3,
+.h3 {
+  margin-bottom: 1em;
+  font-size: 1.375em;
+  line-height: 1.27272727;
+}
+h4,
+.h4 {
+  font-family: "Avenir Next Medium", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: 1.22222222em;
+  font-size: 1.125em;
+  line-height: 1.22222222;
+}
+h5,
+h6,
+.h5,
+.h6 {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+h5,
+.h5 {
+  margin-bottom: 1.57142857em;
+  font-size: 0.875em;
+  line-height: 1.57142857;
+}
+h6,
+.h6 {
+  margin-bottom: 1.83333333em;
+  font-size: 0.75em;
+  line-height: 1.83333333;
+}
+.superheader {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  margin-bottom: 0.45833333em;
+  font-size: 3em;
+  line-height: 1.375;
+}
+/* topdoc
+    name: Margins
+    family: cf-typography
+    patterns:
+    - name: Consistent vertical margins
+      notes:
+        - "Assumes that the font size of each of these items remains the default."
+      markup: |
+        <p>Paragraph margin example</p>
+        <p>Paragraph margin example</p>
+    tags:
+    - cf-typography
+*/
+p,
+ul,
+ol,
+dl,
+table,
+blockquote,
+figure {
+  margin-top: 0;
+  margin-bottom: 1.375em;
+}
+/* topdoc
+    name: Default link
+    notes:
+      - "Note that the .visited, .hover, .focus, .active classes are for demonstration purposes only and should not 
+        be used in production."
+    family: cf-typography
+    patterns:
+    - name: Default state
+      markup: |
+        <a href="#">Default link style</a>
+    - name: Visited state
+      markup: |
+        <a href="#" class="visited">Visited link style</a>
+    - name: Hovered state
+      markup: |
+        <a href="#" class="hover">Hovered link style</a>
+    - name: Focused state
+      markup: |
+        <a href="#" class="focus">Focused link style</a>
+    - name: Active state
+      markup: |
+        <a href="#" class="active">Active link style</a>
+    tags:
+    - cf-typography
+*/
+a {
+  border-bottom-width: 0;
+  border-bottom-style: dotted;
+  border-bottom-color: #0072ce;
+  color: #0072ce;
+  text-decoration: none;
+}
+a:visited,
+a.visited {
+  border-bottom-color: #005e5d;
+  color: #005e5d;
+}
+a:hover,
+a.hover {
+  border-bottom-style: solid;
+  border-bottom-color: #7fb8e6;
+  color: #7fb8e6;
+}
+a:focus,
+a.focus {
+  border-bottom-style: solid;
+}
+a:active,
+a.active {
+  border-bottom-style: solid;
+  border-bottom-color: #002d72;
+  color: #002d72;
+}
+/* topdoc
+    name: Underlined links
+    family: cf-typography
+    patterns:
+    - name: States
+      notes:
+        - "Note that the .visited, .hover, .focus, .active classes are for demonstration purposes only and should not 
+          be used in production."
+        - "The underline style properties are mostly set above in the a tag.
+          To enable the underline simply set a bottom-border-width as done here."
+      markup: |
+        <p>
+            <a href="#">Default</a>,
+            <a href="#" class="visited">Visited</a>,
+            <a href="#" class="hover">Hovered</a>,
+            <a href="#" class="focus">Focused</a>,
+            <a href="#" class="active">Active</a>
+        </p>
+    - name: Underline conditions
+      notes:
+       - "We're restricting link borders to links within p, li, and dd so that
+         we don't have to override them every time we want a plain link."
+      markup: |
+        <p>
+            <a href="#">A child of a paragraph</a>
+        </p>
+        <ul>
+            <li>
+                <a href="#">A child of a list item</a>
+            </li>
+        </ul>
+        <dl>
+            <dt>
+                Definition list term
+            </dt>
+            <dd>
+                <a href="#">A child of a definition list description</a>
+            </dd>
+        </dl>
+    - name: Exceptions for underlined links
+      notes:
+        - "Inline text links inside of a nav element are not underlined."
+      markup: |
+        <nav>
+            <p>
+                <a href="#">A child of a paragraph</a>
+            </p>
+            <ul>
+                <li>
+                    <a href="#">A child of a list item</a>
+                </li>
+            </ul>
+            <dl>
+                <dt>
+                    Definition list term
+                </dt>
+                <dd>
+                    <a href="#">A child of a definition list description</a>
+                </dd>
+            </dl>
+        </nav>
+    tags:
+    - cf-typography
+*/
+p a,
+li a,
+dd a {
+  border-bottom-width: 1px;
+}
+nav a {
+  border-bottom-width: 0;
+}
+/* topdoc
+    name: Blockquote
+    family: cf-typography
+    patterns:
+    - name: Default blockquote
+      markup: |
+       <blockquote>
+         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi animi facere modi eaque amet odio!
+       </blockquote> 
+    tags:
+    - cf-typography
+*/
+blockquote {
+  padding: 0.5em 0.75em;
+  border-left: 4px solid #2cb34a;
+  background: #addc91;
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+blockquote em,
+blockquote i {
+  font-family: "Avenir Next Italic", Arial, sans-serif;
+  font-style: italic;
+  font-weight: normal;
+}
+blockquote strong,
+blockquote b {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+/* topdoc
+    name: Lists
+    family: cf-typography
+    patterns:
+    - name: Unordered list
+      markup: |
+       <ul>
+         <li>List item</li>
+         <li>List item</li>
+         <li>List item</li>
+       </ul>
+    tags:
+    - cf-typography
+*/
+ul {
+  list-style: square;
+}
+/* topdoc
+    name: IE overrides
+    family: cf-typography
+    patterns:
+    - name: Prevent faux/double bold and italics in IE 6-8
+      notes:
+        - "Any bold or italic Avenir elements added to the base styles MUST BE added to this section, as well."
+        - "Dependent on using H5BP's conditional classes on the <html> element:
+          https://github.com/h5bp/html5-boilerplate/blob/v4.3.0/doc/html.md"
+      markup: |
+        <h5>I might appear as faux/double bold in older IE without this fix.</h5>
+    tags:
+    - cf-typography
+    - ltie9
+*/
+.lt-ie9 h1,
+.lt-ie9 h2,
+.lt-ie9 h3,
+.lt-ie9 h4,
+.lt-ie9 h5,
+.lt-ie9 h6,
+.lt-ie9 blockquote strong {
+  font-weight: normal !important;
+}
+.lt-ie9 blockquote em {
+  font-style: normal !important;
+}
+/* topdoc
+  name: EOF
+  eof: true
+*/
+/* ==========================================================================
+   Capital Framework
+   Form Element Styling
+   ========================================================================== */
+label {
+  display: block;
+}
+/* topdoc
+    name: Single/Multi-Line Text Inputs
+    family: cf-forms
+    patterns:
+    - name: Default single-line text input
+      markup: |
+        <input placeholder="placeholder text" type="text">
+    - name: Focused single-line text input
+      markup: |
+        <input class="focus" placeholder="placeholder text" type="text">
+    - name: Field in error state
+      codenotes:
+        - 'role="alert"'
+      notes:
+        - 'Use the alert role to mark invalid fields: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role'
+      markup: |
+        <input class="error" type="text" value="Invalid input">
+        <i class="icon-remove-sign" role="alert"><span class="jekyll-bug"></span></i>
+    - name: Field in success state
+      markup: |
+        <input class="success" type="text" value="Validated input">
+        <i class="icon-ok-sign"><span class="jekyll-bug"></span></i>
+    - name: Default multi-line text box
+      markup: |
+        <textarea>Example entry</textarea>
+    - name: Focused multi-line text box
+      markup: |
+        <textarea class="focus">Example entry</textarea>
+    - name: Multi-line text box in error state
+      codenotes:
+        - 'role="alert"'
+      notes:
+        - 'Use the alert role to mark invalid fields: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role'
+      markup: |
+        <textarea class="error">Invalid input</textarea>
+        <i class="icon-remove-sign" role="alert"><span class="jekyll-bug"></span></i>
+    - name: Multi-line text box in success state
+      markup: |
+        <textarea class="success">Validated input</textarea>
+        <i class="icon-ok-sign"><span class="jekyll-bug"></span></i>
+    tags:
+    - cf-forms
+*/
+input,
+textarea {
+  display: inline-block;
+  width: 85%;
+  margin: 0;
+  padding: 0.25em;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  background: #ffffff;
+  border: 1px solid #75787b;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  vertical-align: top;
+  -webkit-appearance: none;
+  -webkit-user-modify: read-write-plaintext-only;
+}
+textarea {
+  overflow: auto;
+}
+input:focus,
+input.focus,
+textarea:focus,
+textarea.focus {
+  border: 1px solid #0072ce;
+  border-color: #0072ce;
+  outline: 1px solid #0072ce;
+  outline-offset: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+input.error,
+textarea.error {
+  border: 1px solid #d12124;
+  outline: 1px solid #d12124;
+}
+input.success,
+textarea.success {
+  border: 1px solid #2cb34a;
+  outline: 1px solid #2cb34a;
+}
+input + [class^="icon-"],
+textarea + [class^="icon-"] {
+  position: relative;
+  top: 0.15em;
+  margin-left: 0.2em;
+  font-size: 1.25em;
+}
+.error + [class^="icon-"] {
+  color: #d12124;
+}
+.success + [class^="icon-"] {
+  color: #2cb34a;
+}
+/* topdoc
+  name: EOF
+  eof: true
+*/
+/* ==========================================================================
+   Capital Framework
+   Button Styling
+   ========================================================================== */
+/* topdoc
+    name: LESS notes
+    family: cf-buttons
+    patterns:
+    - name: Variables
+      codenotes:
+        - "@btn-font-size: 14px;"
+        - "@btn-v-padding: 9px;"
+        - "@btn-v-padding-modifier-ie: .8;"
+      notes:
+        - "@btn-v-padding-modifier-ie is used to fix the vertical padding bug in IE for <button>'s and <inputs>'s
+          across various .btn styles. We should revisit this after adding normalize.css to see if this is still needed."
+    tags:
+    - cf-buttons
+    - less
+*/
+/* topdoc
+    name: Default button
+    family: cf-buttons
+    notes:
+      - "Note that the .visited, .hover, .focus, .active classes are for demonstration purposes only and should not 
+        be used in production."
+    patterns:
+    - name: Default state
+      markup: |
+        <a href="#" class="btn">Anchor Tag</a>
+        <button class="btn">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn">
+    - name: Hovered/focused state
+      markup: |
+        <a href="#" class="btn hover">Anchor Tag</a>
+        <button class="btn hover">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn hover">
+    - name: Active state
+      markup: |
+        <a href="#" class="btn active">Anchor Tag</a>
+        <button class="btn active">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn active">
+    tags:
+    - cf-buttons
+*/
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0.64285714em 1em;
+  border: 0;
+  border-radius: 0.28571429em;
+  margin: 0;
+  vertical-align: middle;
+  background-color: #0072ce;
+  color: #ffffff;
+  font-family: "Avenir Next Medium", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875em;
+  line-height: normal;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .1s;
+  -webkit-appearance: none;
+}
+.btn:hover,
+.btn:focus,
+.btn.hover {
+  background-color: #328ed8;
+}
+.btn:active,
+.btn.active {
+  background-color: #33578e;
+}
+.btn + .btn {
+  margin-left: 0.42857143em;
+}
+button.btn::-moz-focus-inner,
+input.btn::-moz-focus-inner {
+  border: 0;
+}
+.lt-ie8 {
+  background: url(null) fixed no-repeat;
+}
+.lt-ie8 button.btn,
+.lt-ie8 input.btn {
+  overflow: visible;
+  padding-top: 0.51428571em;
+  padding-bottom: 0.51428571em;
+}
+/* topdoc
+    name: Secondary button
+    family: cf-buttons
+    notes:
+      - "Note that the .visited, .hover, .focus, .active classes are for demonstration purposes only and should not 
+        be used in production."
+    patterns:
+    - name: Default state
+      markup: |
+        <a href="#" class="btn btn-secondary">Anchor Tag</a>
+        <button class="btn btn-secondary">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn-secondary">
+    - name: Hovered/focused state
+      markup: |
+        <a href="#" class="btn btn-secondary hover">Anchor Tag</a>
+        <button class="btn btn-secondary hover">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn-secondary hover">
+    - name: Active state
+      markup: |
+        <a href="#" class="btn btn-secondary active">Anchor Tag</a>
+        <button class="btn btn-secondary active">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn-secondary active">
+    tags:
+    - cf-buttons
+*/
+.btn-secondary,
+.btn-secondary:link,
+.btn-secondary:visited {
+  background-color: #75787b;
+  color: #ffffff;
+}
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary.hover {
+  background-color: #919395;
+}
+.btn-secondary:active,
+.btn-secondary.active {
+  background-color: #43484e;
+}
+/* topdoc
+    name: Destructive action button
+    family: cf-buttons
+    notes:
+      - "Note that the .visited, .hover, .focus, .active classes are for demonstration purposes only and should not 
+        be used in production."
+    patterns:
+    - name: Default state
+      markup: |
+        <a href="#" class="btn btn-warning">Anchor Tag</a>
+        <button class="btn btn-warning">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn-warning">
+    - name: Hovered/focused state
+      markup: |
+        <a href="#" class="btn btn-warning hover">Anchor Tag</a>
+        <button class="btn btn-warning hover">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn-warning hover">
+    - name: Active state
+      markup: |
+        <a href="#" class="btn btn-warning active">Anchor Tag</a>
+        <button class="btn btn-warning active">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn-warning active">
+    tags:
+    - cf-buttons
+*/
+.btn-warning,
+.btn-warning:link,
+.btn-warning:visited {
+  background-color: #d12124;
+  color: #ffffff;
+}
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning.hover {
+  background-color: #da6750;
+}
+.btn-warning:active,
+.btn-warning.active {
+  background-color: #9c301b;
+}
+/* topdoc
+    name: Disabled button
+    family: cf-buttons
+    notes:
+      - "Note that the .visited, .hover, .focus, .active classes are for demonstration purposes only and should not 
+        be used in production."
+    patterns:
+    - name: Default/hovered/focused/active state
+      markup: |
+        <a href="#" class="btn btn-disabled">Anchor Tag</a>
+        <button class="btn btn-disabled">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn-disabled">
+    tags:
+    - cf-buttons
+*/
+.btn-disabled,
+.btn-disabled:link,
+.btn-disabled:visited,
+.btn-disabled:hover,
+.btn-disabled.hover,
+.btn-disabled:focus,
+.btn-disabled:active,
+.btn-disabled.active {
+  background-color: #e3e4e5;
+  color: #75787b;
+  cursor: default;
+  cursor: not-allowed;
+}
+/* topdoc
+    name: Super button
+    family: cf-buttons
+    patterns:
+    - name: Default state
+      markup: |
+        <a href="#" class="btn btn-super">Anchor Tag</a>
+        <button class="btn btn-super">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn-super">
+    - name: Hovered/focused state
+      markup: |
+        <a href="#" class="btn btn-super hover">Anchor Tag</a>
+        <button class="btn btn-super hover">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn-super hover">
+    - name: Active state
+      markup: |
+        <a href="#" class="btn btn-super active">Anchor Tag</a>
+        <button class="btn btn-super active">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn-super active">
+    tags:
+    - cf-buttons
+*/
+.btn-super,
+.btn-super:link,
+.btn-super:visited {
+  padding: 0.83333333em 1.66666667em;
+  font-size: 1.125em;
+}
+.btn-super + .btn-super {
+  margin-left: 0.33333333em;
+}
+.lt-ie8 button.btn-super,
+.lt-ie8 input.btn-super {
+  padding-top: 0.66666667em;
+  padding-bottom: 0.66666667em;
+}
+/* topdoc
+    name: Button with icons
+    family: cf-buttons
+    patterns:
+    - name: Button icon left
+      markup: |
+        <a href="#" class="btn">
+            <i class="btn-icon-left icon-chevron-left"><span class="jekyll-bug"></span></i>
+            Anchor Tag
+        </a>
+        <button class="btn">
+            <i class="btn-icon-left icon-chevron-left"><span class="jekyll-bug"></span></i>
+            Button Tag
+        </button>
+    - name: Button icon right
+      markup: |
+        <a href="#" class="btn">
+            Anchor Tag
+            <i class="btn-icon-right icon-chevron-right"><span class="jekyll-bug"></span></i>
+        </a>
+        <button class="btn">
+            Button Tag
+            <i class="btn-icon-right icon-chevron-right"><span class="jekyll-bug"></span></i>
+        </button>
+    - name: Just an icon
+      markup: |
+        <a href="#" class="btn">
+            <i class="icon-search"><span class="jekyll-bug"></span></i>
+        </a>
+        <button class="btn">
+            <i class="icon-search"><span class="jekyll-bug"></span></i>
+        </button>
+    tags:
+    - cf-buttons
+    - fj-icons
+*/
+.btn [class^="icon-"],
+.btn [class*="icon-"] {
+  line-height: 1;
+}
+.btn-icon-left {
+  padding: 0 0.75em 0 0;
+  border-right: 1px solid #ffffff;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 0 0.5em 0 0;
+}
+.btn-disabled .btn-icon-left {
+  border-right-color: #babbbd;
+}
+.btn-icon-right {
+  padding: 0 0 0 0.75em;
+  border-right: 0;
+  border-left: 1px solid #ffffff;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 0 0 0 0.5em;
+}
+.btn-disabled .btn-icon-right {
+  border-left-color: #babbbd;
+}
+/* topdoc
+    name: Button group
+    family: cf-buttons
+    patterns:
+    - name: Default buttons in a button group
+      markup: |
+        <div class="btn-group">
+            <a href="#" class="btn">Anchor 1</a>
+            <a href="#" class="btn">Anchor 2</a>
+            <a href="#" class="btn">Anchor 3</a>
+        </div><br>
+        <div class="btn-group">
+            <button class="btn">Button 1</button>
+            <button class="btn">Button 2</button>
+            <button class="btn">Button 3</button>
+        </div><br>
+        <div class="btn-group">
+            <input type="button" value="Input 1" class="btn">
+            <input type="button" value="Input 2" class="btn">
+            <input type="button" value="Input 3" class="btn">
+        </div>
+    - name: Super buttons in a button group
+      markup: |
+        <div class="btn-group">
+            <a href="#" class="btn btn-super">Anchor 1</a>
+            <a href="#" class="btn btn-super">Anchor 2</a>
+            <a href="#" class="btn btn-super">Anchor 3</a>
+        </div><br>
+        <div class="btn-group">
+            <button class="btn btn-super">Button 1</button>
+            <button class="btn btn-super">Button 2</button>
+            <button class="btn btn-super">Button 3</button>
+        </div><br>
+        <div class="btn-group">
+            <input type="button" value="Input 1" class="btn btn-super">
+            <input type="button" value="Input 2" class="btn btn-super">
+            <input type="button" value="Input 3" class="btn btn-super">
+        </div>
+    tags:
+    - cf-buttons
+*/
+.btn-group .btn:first-child:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.btn-group .btn + .btn {
+  margin-left: -0.21428571em;
+}
+.btn-group .btn + .btn:not(:last-child) {
+  border-radius: 0;
+}
+.btn-group .btn:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.btn-group .btn-super + .btn-super {
+  margin-left: -0.16666667em;
+}
+/* topdoc
+    name: Compound button
+    family: cf-buttons
+    notes:
+      - "Note that the .visited, .hover, .focus, .active classes are for demonstration purposes only and should not 
+        be used in production."
+    patterns:
+    - name: Default button style
+      markup: |
+        <div class="btn-group">
+            <a href="#" class="btn">Anchor</a>
+            <a href="#" class="btn btn-compound-action"><i class="icon-caret-down"><span class="jekyll-bug"></span></i></a>
+        </div><br>
+        <div class="btn-group">
+            <button class="btn">Button</button>
+            <button class="btn btn-compound-action"><i class="icon-caret-down"><span class="jekyll-bug"></span></i></button>
+        </div><br>
+    - name: Secondary button style
+      markup: |
+        <div class="btn-group">
+            <a href="#" class="btn btn-secondary">Anchor</a>
+            <a href="#" class="btn btn-secondary btn-compound-action"><i class="icon-caret-down"><span class="jekyll-bug"></span></i></a>
+        </div><br>
+        <div class="btn-group">
+            <button class="btn btn-secondary">Button</button>
+            <button class="btn btn-secondary btn-compound-action"><i class="icon-caret-down"><span class="jekyll-bug"></span></i></button>
+        </div>
+    - name: Super button style
+      markup: |
+        <div class="btn-group">
+            <a href="#" class="btn btn-super">Anchor</a>
+            <a href="#" class="btn btn-super btn-compound-action"><i class="icon-caret-down"><span class="jekyll-bug"></span></i></a>
+        </div><br>
+        <div class="btn-group">
+            <button class="btn btn-super">Button</button>
+            <button class="btn btn-super btn-compound-action"><i class="icon-caret-down"><span class="jekyll-bug"></span></i></button>
+        </div>
+    tags:
+    - cf-buttons
+    - fj-icons
+*/
+.btn-compound-action,
+.btn-compound-action:link,
+.btn-compound-action:visited {
+  background-color: #328ed8;
+}
+.btn-compound-action:hover,
+.btn-compound-action:focus,
+.btn-compound-action.hover {
+  background-color: #0072ce;
+}
+.btn-compound-action.btn-secondary {
+  background-color: #919395;
+}
+.btn-compound-action.btn-secondary:hover,
+.btn-compound-action.btn-secondary:focus,
+.btn-compound-action.btn-secondary.hover {
+  background-color: #75787b;
+}
+.btn-compound-action.btn-super {
+  padding-left: 1.22222222em;
+  padding-right: 1.22222222em;
+}
+/* topdoc
+    name: Button link
+    family: cf-buttons
+    notes:
+      - "Note that the .visited, .hover, .focus, .active classes are for demonstration purposes only and should not 
+        be used in production."
+    patterns:
+    - name: Default state
+      markup: |
+        <a href="#" class="btn btn-link">Anchor Tag</a>
+        <button class="btn btn-link">Button Tag</button>
+        <input type="button" value="Input Tag" class="btn btn-link">
+    - name: Hovered state
+      markup: |
+        <a href="#" class="btn btn-link hover">Anchor Tag</a>
+        <button class="btn btn-link hover">Button Tag</button>
+        <input type="button" value="Input Tag" class="btn btn-link hover">
+    - name: Focused state
+      markup: |
+        <a href="#" class="btn btn-link focus">Anchor Tag</a>
+        <button class="btn btn-link focus">Button Tag</button>
+        <input type="button" value="Input Tag" class="btn btn-link focus">
+    - name: Active state
+      markup: |
+        <a href="#" class="btn btn-link active">Anchor Tag</a>
+        <button class="btn btn-link active">Button Tag</button>
+        <input type="button" value="Input Tag" class="btn btn-link active">
+    tags:
+    - cf-buttons
+*/
+.btn-link,
+.btn-link:link,
+.btn-link:visited {
+  padding: 0;
+  border-bottom: 1px dotted #0072ce;
+  border-radius: 0;
+  margin: 0.64285714em 0;
+  background-color: transparent;
+  color: #0072ce;
+}
+.btn-link:hover,
+.btn-link.hover {
+  border-bottom: 1px solid #7fb8e6;
+  background-color: transparent;
+  color: #7fb8e6;
+}
+.btn-link:focus,
+.btn-link.focus {
+  border-bottom-style: solid;
+  background-color: transparent;
+  outline: thin dotted;
+}
+.btn-link:active,
+.btn-link.active {
+  border-bottom: 1px solid #002d72;
+  background-color: transparent;
+  color: #002d72;
+}
+.lt-ie8 button.btn-link,
+.lt-ie8 input.btn-link {
+  padding: 0;
+}
+/* topdoc
+    name: Destructive action button link
+    family: cf-buttons
+    notes:
+      - "Note that the .visited, .hover, .focus, .active classes are for demonstration purposes only and should not 
+        be used in production."
+    patterns:
+    - name: Default state
+      markup: |
+        <a href="#" class="btn btn-link btn-warning">Anchor Tag</a>
+        <button class="btn btn-link btn-warning">Button Tag</button>
+        <input type="button" value="Input Tag" class="btn btn-link btn-warning">
+    - name: Hovered state
+      markup: |
+        <a href="#" class="btn btn-link btn-warning hover">Anchor Tag</a>
+        <button class="btn btn-link btn-warning hover">Button Tag</button>
+        <input type="button" value="Input Tag" class="btn btn-link btn-warning hover">
+    - name: Focused state
+      markup: |
+        <a href="#" class="btn btn-link btn-warning focus">Anchor Tag</a>
+        <button class="btn btn-link btn-warning focus">Button Tag</button>
+        <input type="button" value="Input Tag" class="btn btn-link btn-warning focus">
+    - name: Active state
+      markup: |
+        <a href="#" class="btn btn-link btn-warning active">Anchor Tag</a>
+        <button class="btn btn-link btn-warning active">Button Tag</button>
+        <input type="button" value="Input Tag" class="btn btn-link btn-warning active">
+    tags:
+    - cf-buttons
+*/
+.btn-link.btn-warning,
+.btn-link.btn-warning:link,
+.btn-link.btn-warning:visited {
+  border-bottom-color: #d12124;
+  background-color: transparent;
+  color: #d12124;
+}
+.btn-link.btn-warning:hover,
+.btn-link.btn-warning.hover {
+  border-bottom-color: #da6750;
+  color: #da6750;
+}
+.btn-link.btn-warning:focus,
+.btn-link.btn-warning.focus {
+  border-bottom-color: #da6750;
+  outline: thin dotted;
+}
+.btn-link.btn-warning:active,
+.btn-link.btn-warning.active {
+  border-bottom-color: #9c301b;
+  color: #9c301b;
+}
+/* topdoc
+  name: EOF
+  eof: true
+*/
+.col {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+}
+.ie .col {
+  margin-right: -0.26em;
+}
+.lt-ie8 .col {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+img {
+  max-width: 100%;
+}
+.img-wrap {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+  width: 50%;
+  border: 1px solid #e3e4e5;
+}
+.ie .img-wrap {
+  margin-right: -0.26em;
+}
+.lt-ie8 .img-wrap {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+.form-wrap {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+  width: 50%;
+}
+.ie .form-wrap {
+  margin-right: -0.26em;
+}
+.lt-ie8 .form-wrap {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+.comment-num {
+  color: #0072ce;
+  font-size: 36px;
+}
