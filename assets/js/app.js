@@ -1,6 +1,6 @@
 var app = angular.module('CTC', []);
 
-app.controller('MainCtrl', function ($scope, $rootScope, config) {
+app.controller('MainCtrl', function ($scope, $rootScope, config, $http) {
     var ct = 0;
     $scope.images = config.images;
     $scope.maxComments = config.maxComments;
@@ -22,8 +22,8 @@ app.controller('MainCtrl', function ($scope, $rootScope, config) {
                 }
             } else {
                 coords = target.coords.split(",", 2);
-                left = parseInt(coords[0]) + rect.left + (ct*30);
-                top = parseInt(coords[1]) + rect.top + (ct*30);
+                left = parseInt(coords[0]) + rect.left + (ct*35);
+                top = parseInt(coords[1]) + rect.top + (ct*35);
                 ct += 1;
             }
             $scope.comments.push({x: parseInt((left/$(parent).width()) * 100), y: parseInt((top/$(parent).height()) * 100), title: target.title, text: ''});
@@ -35,7 +35,9 @@ app.controller('MainCtrl', function ($scope, $rootScope, config) {
     }
 
     $scope.submit = function () {
-        console.log($scope.comments);
+        $http.post('/save', $scope.comments).success(function () {
+            console.log('success');
+        });
     }
 });
 
