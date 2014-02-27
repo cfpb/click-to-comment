@@ -36,7 +36,7 @@
               {{$index + 1}}
           </div>
         </div>
-        
+
         <div class="img-container" ng-click="addComment($event)">
             <img class="click-img" src="assets/img/le_page1.png" usemap="#map">
             <map name="map" id="map">
@@ -52,7 +52,7 @@
         <div class="comment-limit sans" ng-show="comments.length >= maxComments">
           There is a limit of <strong>{{maxComments}}</strong> comments.
         </div>
-        <div ng-show="submitted">Success!</div>
+        <div ng-show="submitted" class="success sans">Success!</div>
         <form  ng-hide="submitted">
             <div class="comment-form" ng-repeat="comment in comments track by $index">
                 <p class="sans">
