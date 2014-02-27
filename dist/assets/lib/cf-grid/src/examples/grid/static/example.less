@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Setting up Ghost
+   ========================================================================== */
+
+// Import Ghost.
+@import "ghost.less";
+
+// You can override the default number of columns and the default width to
+// whatever you need.
+@total-columns: 12;
+@wrapper-width: 1200px;
+
+// Give columns a background color to aid debugging.
+@debug: true;
+
+// Ghost provides a legacy file that will generate class names like `.col-1`
+// and `.col-1.prefix-1` that you can use in your markup if you don't want to
+// set the columns yourself.
+@import "ghost-legacy.less";
+
+
+/* ==========================================================================
+   Making custom wrappers and adding custom properties to the columns
+   ========================================================================== */
+
+.cols-12 {
+
+  // Make .cols-12 a Ghost .wrapper.
+  .wrapper();
+
+  // Make an alternate .wrapper that has a max-width of 960px.
+  &.w-960 {
+    .wrapper( 960px );
+
+  }
+
+  // Space .wrappers apart from each other.
+  padding-top: 20px !important;
+  padding-bottom: 40px !important;
+  clear: both;
+  border-bottom: 1px solid #ccc;
+
+  // Each Ghost column has both left and right gutters. since we're wrapping
+  // each set of columns in a section tag we can negate the left gutter on the
+  // first column and the right gutter on the last column by simply using
+  // negative margins on its container.
+  section {
+    margin: 0 -15px;
+  }
+
+}
+
+.col {
+  // Center the text inside of each column...
+  text-align: center;
+  // Space each column apart vertically.
+  margin-bottom: 10px;
+
+  section {
+    // ... but since each column is using inline-block we have to make sure
+    // that nested columns stil align left.
+    text-align: left;
+  }
+
+  div {
+    padding: 20px 0;
+    background-color: #FCC;
+    background-color: rgba(255, 0, 0, 0.25);
+  }
+}
+
+// for screens under 768px make each column span all 12 columns regardless.
+@media only screen and ( max-width: 767px ) {
+  .col {
+    .column(12);
+    // For columns using push() we have to make sure the offset is removed.
+    margin-left: 0;
+  }
+}
+
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+body {
+  font-family: "Avenir Next", Arial, sans-serif;
+  margin: 0;
+}
+
+h1 {
+  .wrapper();
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+h2, h3 {
+  clear: both;
+}
