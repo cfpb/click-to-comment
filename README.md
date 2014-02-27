@@ -1,6 +1,18 @@
 click-to-comment
 ================
 
+## Requirements
+
+- [npm](https://npmjs.org/)
+- [grunt-cli](http://gruntjs.com/getting-started)
+- [Bower](http://bower.io/)
+
+## Workflow
+
+1. Clone the repo and `cd` into its root.
+2. `npm install` - Pulls in npm dependencies.
+3. `bower install` – Pulls in Bower components.
+4. `grunt server` – launches the sample backend service.
 
 
 ## API
