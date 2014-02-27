@@ -1515,6 +1515,12 @@ img {
   background: #ffecd1;
   border: 1px solid #ffb149;
 }
+.success {
+  margin-bottom: 1em;
+  padding: 10px;
+  background: #dbedd4;
+  border: 1px solid #addc91;
+}
 .clear:hover {
   cursor: pointer;
 }

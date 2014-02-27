@@ -32,7 +32,7 @@
       <div class="img" >
 
         <div ng-repeat="comment in comments track by $index">
-          <div class="comment-num" ng-style="{top: comment.y + '%', left: comment.x + '%'}">
+          <div class="comment-num" ng-style="{top: comment.y + '%', left: comment.x + '%'}" ng-hide="submitted">
               {{$index + 1}}
           </div>
         </div>
@@ -52,7 +52,8 @@
         <div class="comment-limit sans" ng-show="comments.length >= maxComments">
           There is a limit of <strong>{{maxComments}}</strong> comments.
         </div>
-        <form>
+        <div ng-show="submitted">Success!</div>
+        <form  ng-hide="submitted">
             <div class="comment-form" ng-repeat="comment in comments track by $index">
                 <p class="sans">
                     Note {{$index + 1}}
