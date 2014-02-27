@@ -4,22 +4,19 @@ app.controller('MainCtrl', function ($scope, $rootScope, config) {
     var ct = 0;
     $scope.images = config.images;
     $scope.maxComments = config.maxComments;
-    
 
     $scope.comments = [];
 
     $scope.addComment = function ($event) {
         window.e = $event;
-        var target = $event.target, left, top, parent, imgParent, imgRect;
+        var target = $event.target, left, top, parent;
         $event.preventDefault();
-        if ($scope.comments.length >= $scope.maxComments) {
-            window.alert("There is a limit of " + $scope.maxComments + " notes.");
-        } else {
+        if ($scope.comments.length < $scope.maxComments) {
             parent = $(target).parents('.img-wrap');
             rect = parent[0] ? parent[0].getBoundingClientRect() : {};
             if ($event.clientX) {
-                left = $event.clientX - rect.left;
-                top = $event.clientY - rect.top;
+                left = $event.clientX - rect.left - 20;
+                top = $event.clientY - rect.top - 10;
                 if (left > $(parent).width()) {
                     left = $(parent).width() - 20;
                 }
@@ -28,9 +25,8 @@ app.controller('MainCtrl', function ($scope, $rootScope, config) {
                 left = parseInt(coords[0]) + rect.left + (ct*30);
                 top = parseInt(coords[1]) + rect.top + (ct*30);
                 ct += 1;
-
             }
-            $scope.comments.push({left: (left/$(parent).width()) * 100, top: (top/$(parent).height()) * 100, title: target.title});
+            $scope.comments.push({x: parseInt((left/$(parent).width()) * 100), y: parseInt((top/$(parent).height()) * 100), title: target.title, text: ''});
         }
     }
 
@@ -44,31 +40,13 @@ app.controller('MainCtrl', function ($scope, $rootScope, config) {
 });
 
 app.service('config', function () {
-   var config = {}, defaultArea = [{height: '100%', width: '100%', top: "0px", left: "0px"}];
+   var config = {};
    
    config.maxComments = 4;
    
-   config.images = [
-        {
-            src: "assets/img/le_page1.png", 
-            areas: []
-        },
-        {
-            src: "assets/img/le_page1.png",
-            areas: [
-                {height:"50%", width:"50%", top: "0px", left:"0px", title: "Settlement and transaction information"}
-            ]
-        }
-   ];
-   
-   angular.forEach(config.images, function (img) {
-       if (!img.areas || (angular.isArray(img.areas) && !img.areas.length)) {
-           img.areas = defaultArea;
-       }
-   });
-   
    return config; 
 });
+
 app.directive("scroll", function ($window) {
   return function(scope, element, attrs) {
     angular.element($window).bind("scroll", function() {

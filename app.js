@@ -8,7 +8,6 @@ app.post('/save', function(req, res){
     var req = req;
     if (req.is('json')){
         var submissions = req.body;
-        
         if (Array.isArray(submissions)){ 
             for (var i = 0; i < submissions.length; i++) {
                     var submission = submissions[i]
@@ -16,7 +15,6 @@ app.post('/save', function(req, res){
             }
             res.json({success:true});
         } else {
-            
             res.json({success:false, message:"submission must be an array"});
         }
 
