@@ -12,7 +12,7 @@ click-to-comment
 1. Clone the repo and `cd` into its root.
 2. `npm install` - Pulls in npm dependencies.
 3. `bower install` – Pulls in Bower components.
-4. `grunt server` – launches the sample backend service.
+4. `grunt server` – launches the demo, including sample backend service.
 
 
 ## API
@@ -26,12 +26,12 @@ The handler at /save accepts POST's of JSON data in a form that looks like:
     {
         "x": 1,
         "y": 2,
-        "text": "thisismyfeedback"
+        "text": "this language is confusing"
     },
       {
         "x": 3,
         "y": 4,
-        "text": "thisismyfeedback"
+        "text": "Poor contrast!"
     }
   
 ]
