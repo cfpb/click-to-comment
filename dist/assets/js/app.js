@@ -1,9 +1,10 @@
 var app = angular.module('CTC', []);
 
-app.controller('MainCtrl', function ($scope, $rootScope, config) {
+app.controller('MainCtrl', function ($scope, $rootScope, config, $http, $timeout) {
     var ct = 0;
     $scope.images = config.images;
     $scope.maxComments = config.maxComments;
+    $scope.submitted = false;
 
     $scope.comments = [];
 
@@ -35,7 +36,12 @@ app.controller('MainCtrl', function ($scope, $rootScope, config) {
     }
 
     $scope.submit = function () {
-        console.log($scope.comments);
+        $http.post('/save', $scope.comments).success(function () {
+            console.log('success');
+            $timeout(function () {
+                $scope.submitted = true;
+            });
+        });
     }
 });
 
