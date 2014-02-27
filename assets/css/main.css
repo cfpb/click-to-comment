@@ -1467,9 +1467,14 @@ img {
     *behavior: url(boxsizing.htc);
   }
 }
-@media (min-width: 850px) and (min-height: 700px) {
+@media (min-width: 850px) and (min-height: 600px) {
   #form-wrap.min {
     position: fixed;
+    min-height: 100%;
+    overflow-y: scroll;
+    padding-left: 4px;
+    padding-bottom: 20px;
+    width: 500px;
     top: 30px;
   }
 }
