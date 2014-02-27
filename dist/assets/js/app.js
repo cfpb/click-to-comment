@@ -26,7 +26,7 @@ app.controller('MainCtrl', function ($scope, $rootScope, config) {
                 top = parseInt(coords[1]) + rect.top + (ct*30);
                 ct += 1;
             }
-            $scope.comments.push({x: parseInt((left/$(parent).width()) * 100), y: parseInt((top/$(parent).height()) * 100), ttext: ''});
+            $scope.comments.push({x: parseInt((left/$(parent).width()) * 100), y: parseInt((top/$(parent).height()) * 100), title: target.title, text: ''});
         }
     }
 
@@ -36,8 +36,6 @@ app.controller('MainCtrl', function ($scope, $rootScope, config) {
 
     $scope.submit = function () {
         console.log($scope.comments);
-        console.log(JSON.stringify($scope.comments));
-        $.post('/save', JSON.stringify($scope.comments));
     }
 });
 

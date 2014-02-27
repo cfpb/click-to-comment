@@ -8,8 +8,7 @@
 
   <title>Click To Comment</title>
   <meta name="description" content="">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  
+  <script src="assets/lib/jquery/jquery.min.js"></script>
   <script src="assets/lib/angular/angular.min.js"></script>
   <link rel="stylesheet" href="assets/css/main.css">
   <script>
@@ -29,11 +28,11 @@
     <p class="sans">Click to indicate which four items are most important in understanding final loan terms and closing costs.</p>
 
 
-    <div class="img-wrap" style="position:relative;">
+    <div class="img-wrap">
       <div class="img" >
 
         <div ng-repeat="comment in comments track by $index">
-          <div class="comment-num" ng-style="{top: comment.y + '%', left: comment.x + '%'}" style="position:absolute;z-index:1000">
+          <div class="comment-num" ng-style="{top: comment.y + '%', left: comment.x + '%'}">
               {{$index + 1}}
           </div>
         </div>
