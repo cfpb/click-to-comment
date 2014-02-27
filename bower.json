@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "normalize.css": "~3.0.0",
+    "jquery": "~1.9.1",
     "angular": "~1.2.13",
     "cf-forms": "https://github.com/cfpb/cf-forms.git#~0.4.0",
     "cf-grid": "https://github.com/cfpb/cf-grid.git#~0.6.8",
